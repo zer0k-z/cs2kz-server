@@ -22,6 +22,15 @@ $ docker exec -it <ID> /bin/bash
 # Download CS2
 $ make
 
+# Download metamod
+$ make metamod
+
 # Run the server
 $ make run
 ```
+
+## Installing CS2KZ
+
+1. Follow the instructions in this repo: https://github.com/zer0k-z/cs2kz_metamod/tree/dev
+2. Copy `build/package` from the cs2kz_metamod repo into `./cs2kz`
+3. Run `make kz` in the container
