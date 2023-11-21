@@ -1,3 +1,8 @@
+container:
+	make gameserver
+	make metamod
+	make kz
+
 gameserver:
 	steamcmd \
 		+force_install_dir /cs2kz/server \
