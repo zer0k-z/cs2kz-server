@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  cs2kz-server:
+    restart: no
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "27015:27015/udp"
+      - "27015:27015/tcp"
+    volumes:
+      - ./server:/cs2kz/server
