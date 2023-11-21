@@ -10,4 +10,6 @@ RUN echo steam steam/license note "" | debconf-set-selections
 RUN apt-get install -y steamcmd
 RUN ln -s /usr/games/steamcmd /usr/bin/steamcmd
 
+RUN apt-get install -y curl
+
 ENTRYPOINT [ "tail", "-f", "/dev/null" ]
