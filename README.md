@@ -5,6 +5,19 @@
 Everything in the repository root will be copied into the container, so you can put plugins,
 configuration files, etc. in the repo root and then install them in the container.
 
+Before start the server, create a `docker-entrypoint.sh` script that contains anything you want
+the container to execute:
+
+```sh
+#!/bin/sh
+
+make
+make run
+```
+
+You can put `tail -f /dev/null` in there if you want it to spin forever, so you can shell into it
+from a separate shell session.
+
 To start the server, run the following command:
 
 ```sh
