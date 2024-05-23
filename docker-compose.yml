@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   cs2kz-server:
-    restart: no
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,4 +10,5 @@ services:
       - "27015:27015/udp"
       - "27015:27015/tcp"
     volumes:
-      - ./server:/cs2kz/server
+      - ../cs2kz-metamod:/cs2kz/cs2kz-metamod
+      - ../server:/cs2kz/server
