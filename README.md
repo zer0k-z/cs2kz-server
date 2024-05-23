@@ -1,22 +1,6 @@
-# CS2 Server Template
+# CS2KZ Linux Docker Development Server
 
 ## Running the container
-
-Everything in the repository root will be copied into the container, so you can put plugins,
-configuration files, etc. in the repo root and then install them in the container.
-
-Before start the server, create a `docker-entrypoint.sh` script that contains anything you want
-the container to execute:
-
-```sh
-#!/bin/sh
-
-make
-make run
-```
-
-You can put `tail -f /dev/null` in there if you want it to spin forever, so you can shell into it
-from a separate shell session.
 
 To start the server, run the following command:
 
@@ -24,8 +8,11 @@ To start the server, run the following command:
 $ docker compose up --build
 ```
 
-## Installing CS2KZ
+The server would spin forever so you can shell into it from a separate shell session.
 
-1. Follow the instructions in this repo: https://github.com/zer0k-z/cs2kz_metamod/tree/dev
-2. Copy `build/package` from the cs2kz_metamod repo into `./cs2kz`
-3. Rebuild the container and KZ should get installed automatically.
+`make plugin` recompiles the plugin and put it into the server's directory.
+`make runkz` runs the server.
+`make gameserver` updates the server, use when the game gets updated.
+
+Everything in the repository root will be copied into the container, do not place
+the server or the cs2kz-metamod repository inside this folder.

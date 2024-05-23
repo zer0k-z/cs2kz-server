@@ -10,5 +10,6 @@ services:
       - "27015:27015/udp"
       - "27015:27015/tcp"
     volumes:
+      # Replace ../cs2kz-metamod and ../server with whereever the repo and the server is
       - ../cs2kz-metamod:/cs2kz/cs2kz-metamod
       - ../server:/cs2kz/server
