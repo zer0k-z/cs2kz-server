@@ -1,3 +1,6 @@
+latestMM := $(shell curl https://mms.alliedmods.net/mmsdrop/2.0/mmsource-latest-linux -s -S)
+mmURL := "https://mms.alliedmods.net/mmsdrop/2.0/$(latestMM)"
+
 container:
 	@if [ $$(ls /cs2kz/server | wc -l) -gt 1 ]; then make steamclient; else make gameserver; fi
 	@if [ ! -d "/cs2kz/server/game/csgo/addons" ]; then make metamod; fi
@@ -18,9 +21,6 @@ gameserver:
 	make steamclient
 
 metamod:
-	@export latestMM=$(curl https://mms.alliedmods.net/mmsdrop/2.0/mmsource-latest-linux -s -S);
-	@export mmURL="https://mms.alliedmods.net/mmsdrop/2.0/${latestMM}";
-
 	curl -L $(mmURL) \
 		-o /cs2kz/server/game/csgo/metamod.tar.gz
 
